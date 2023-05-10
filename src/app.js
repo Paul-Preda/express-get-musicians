@@ -14,6 +14,12 @@ app.get("/musicians", async (req, res) =>{
     res.json(musicians)
 })
 
+// part 2
+app.get("/musicians/:id", async (req, res) => {
+    let name = req.params.id
+    let found = await Musician.findByPk(name)
+    res.send(found)
+})
 
 // part 3
 app.post("/musicians", async (req, res) => {
